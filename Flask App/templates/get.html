@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Find My Issue</title>
+</head>
+
+<body>
+
+	<div style="margin-left:10%;padding:1px 16px;height:1000px;">
+		<br>
+		<br>
+		<form action="/find" method="POST">
+			<table id="formtable" class="formtable">
+				<th colspan="2"></th>
+				<tr>
+					<td>Issue : </td>
+					<td>
+						<input type="text" placeholder="Enter Keyword of Issue" name="Keyword"
+							id="Keyword" style="height:30px;width:400px;" required></input>
+					</td>
+                    <td><button type="submit" name="Find" id="Find">Find Issue</button></td>
+				</tr>
+			</table>
+            <table id="outputtable" class="outputtable" border=3 width=100%>
+	                <th>Title</th>
+                    <th>Description</th>
+                
+                {% for value in resultset%}
+				<tr>
+                    <td>{{value.0}}</td>
+                    <td>{{value.1}}</td>               
+				</tr>
+                {% endfor %}
+			</table>
+
+
+		</form>
+	</div>
+
+</body>
+
+</html>
